@@ -1,6 +1,8 @@
 /.metadata/
-/Client/.settings
-/Client/bin
-/Server/.settings
-/Server/bin
+Client/.settings
+Client/bin
+Client/.classpath
+Server/.settings
+Server/bin
+Server/.classpath
 
