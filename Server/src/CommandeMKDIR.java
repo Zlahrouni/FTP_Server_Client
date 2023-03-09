@@ -14,7 +14,7 @@ public class CommandeMKDIR extends Commande {
 	 * @param ps Le flux de sortie où les résultats de la commande doivent être imprimés.
 	 * @param commandeStr La chaîne de caractères qui représente la commande "rmdir".
 	 */
-	public CommandeMKDIR(PrintStream ps, String commandeStr) {
+	public CommandeMKDIR(PrintStream ps, String commandeStr) { 
 		super(ps, commandeStr);
 	}
 	
