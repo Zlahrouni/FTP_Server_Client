@@ -1,4 +1,5 @@
-package clnt;
+package test;
+
 
 import java.io.File;
 import java.io.IOException;
@@ -41,7 +42,8 @@ public class test {
          for (String file : fileList) {
              System.out.println(file);
          }
-
+         
 	}
 
 }
+
