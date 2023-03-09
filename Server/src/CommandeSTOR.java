@@ -34,7 +34,7 @@ public class CommandeSTOR extends Commande {
 		
 			
 		}else {
-			ps.print("2 USAGE : GET [file]");
+			ps.print("2 USAGE : stor [File]");
 		}
 	}
 
