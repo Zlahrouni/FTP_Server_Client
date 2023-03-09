@@ -35,7 +35,7 @@ public class CommandeLS extends Commande {
 		File directory;
 		
 		// Vérifier si un argument a été spécifié pour la commande
-		if (this.commandeArgs.length > 0) {
+		if (this.commandeArgs[0].isEmpty()) {
 			directory = new File(this.commandeArgs[0]);
 		} else {
 			directory = new File(currentDirectory);

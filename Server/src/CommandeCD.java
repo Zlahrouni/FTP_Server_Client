@@ -11,15 +11,16 @@ import java.io.PrintStream;
  */
 public class CommandeCD extends Commande {
 
-    /**
-     * Constructeur de la classe CommandeCD.
-     *
-     * @param ps            un objet PrintStream pour l'affichage des résultats de la commande.
-     * @param commandeStr   une chaîne de caractères représentant la commande "cd".
-     */
-    public CommandeCD(PrintStream ps, String commandeStr) {
-        super(ps, commandeStr);
-    }
+	/**
+	 * Constructeur de la classe CommandeLS.
+	 * 
+	 * @param ps          Le flux de sortie où les résultats de la commande doivent
+	 *                    être imprimés.
+	 * @param commandeStr La chaîne de caractères qui représente la commande "ls".
+	 */
+	public CommandeCD(PrintStream ps, String commandeStr) {
+		super(ps, commandeStr);
+	}
 
     /**
      * Cette méthode execute la commande "cd" en changeant le répertoire courant du
