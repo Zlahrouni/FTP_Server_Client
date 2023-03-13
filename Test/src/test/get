@@ -1,0 +1,20 @@
+if (commande.startsWith("get")) {
+		    String filename = commande.split(" ")[1];
+		    try {
+		        FileOutputStream fos = new FileOutputStream(filename);
+		        String line;
+		        while ((line = br.readLine()) != null) {
+		        	if (line.startsWith("0") || line.startsWith("2")) {
+				    	 break;
+				     }
+		            fos.write(line.getBytes());
+		            fos.write(System.lineSeparator().getBytes()); // add line separator
+		        }
+		        fos.close();
+		        System.out.println("File saved as " + filename);
+		    } catch (IOException e) {
+		        e.printStackTrace();
+		    }
+		} else {
+			
+		}

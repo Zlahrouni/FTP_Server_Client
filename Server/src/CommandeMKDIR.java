@@ -38,7 +38,7 @@ public class CommandeMKDIR extends Commande {
 		        
 		        if (nouveauRepertoire.exists()) {
 		        	// Si le répertoire existe déjà, afficher un message d'erreur
-		            ps.print("2 The folder '" + nomRepertoire + "' already exist");
+		            ps.println("2 The folder '" + nomRepertoire + "' already exist");
 		        }
 		        
 		        else {
@@ -47,11 +47,11 @@ public class CommandeMKDIR extends Commande {
 		            
 		            if(creationSucces) {
 		            	// Si la création du répertoire s'est bien déroulée, afficher un message de confirmation
-		            	ps.print("0 The folder " + nomRepertoire + " is created");
+		            	ps.println("0 The folder " + nomRepertoire + " is created");
 		            }else {
 		            	
 	                    // Si la création du répertoire a échoué, afficher un message d'erreur
-		            	ps.print("2 The folder '" + nomRepertoire + "' couldn't be created");
+		            	ps.println("2 The folder '" + nomRepertoire + "' couldn't be created");
 		            }
 		        }
 		}

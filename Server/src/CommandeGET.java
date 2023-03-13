@@ -28,10 +28,10 @@ public class CommandeGET extends Commande {
 	 * dans les arguments de la commande dans le flux de sortie spécifié dans le constructeur.
 	 */
 	public void execute() {
-		if(!this.commandeArgs[0].isEmpty()) {
+		if(this.commandeArgs.length != 0) {
 			File fichier = new File(this.commandeArgs[0]);
 			try {
-				FileInputStream in = new FileInputStream(fichier);
+				FileInputStream in = new FileInputStream(System.getProperty("user.dir") + "\\" +fichier);
 				BufferedInputStream bis = new BufferedInputStream(in);
 				
 				// Lire le contenu du fichier et l'écrire dans le PrintStream
@@ -41,18 +41,19 @@ public class CommandeGET extends Commande {
 		            ps.write(buffer, 0, count);
 		        }
 		        
-		        ps.print("0 chargement terminé");
+		        ps.println("0 File download finished successfully.");
 		        bis.close();
 		        
 			} catch ( IOException e) {
-				ps.print("2 erreur ");
+				ps.println("2 Unable to complete command due to error.");
 				e.printStackTrace();
 			}
 		
 			
-		}else {
-			ps.print("2 USAGE : GET [file]");
+		} else {
+			ps.println("2 USAGE : GET [file]");
 		}
+		
 	}
 
 }

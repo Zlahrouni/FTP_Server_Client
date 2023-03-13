@@ -33,7 +33,7 @@ public class CommandeRMDIR extends Commande {
 		if (arg.contains(File.separator))  {
 			chemin = arg;
 		} else {
-			chemin = System.getProperty("user.dir")+File.separator+"folder";
+			chemin = System.getProperty("user.dir")+File.pathSeparator+arg;
 		}
 
 		// Créer un objet File pour le répertoire

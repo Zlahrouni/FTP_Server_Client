@@ -7,7 +7,7 @@ import java.io.IOException;
 public class test {
 
 	public static void main(String[] args) throws IOException {
-			String directoryPath = "C:\\Users\\PC\\Documents\\dev\\projects\\Java\\FTP\\Test\\src\\test";
+			String directoryPath = "C:\\Users\\PC\\Documents\\dev\\";
 	        File directory = new File(directoryPath);
 	        if (directory.exists()) {
 	            System.setProperty("user.dir", directory.getAbsolutePath());
@@ -16,35 +16,38 @@ public class test {
 	            System.out.println("Le répertoire spécifié n'existe pas.");
 	        }
 	        
-	        String arg = System.getProperty("user.dir")+File.separator+"folder";
-			String chemin;
-			if (arg.contains(File.separator))  {
-				chemin = arg;
-			} else {
-				chemin = System.getProperty("user.dir")+File.separator+"folder";
-			}
+	     // Déclaration des variables
+	        File repertoire;
+	        String nomRepertoire;
+	        
+	        String arg = "";
+	        // Si aucun argument n'est fourni, on utilise le répertoire courant
+	        if (arg.isEmpty()) {
 
+	            File fichier = new File(".");
+	            String pathAbsolue =  fichier.getParent();
+	            String[] repertoireCourantArray = pathAbsolue.split(File.separator);
+	            nomRepertoire = repertoireCourantArray[0] + File.separator;
 
-         // Créer un objet File pour le répertoire
-         File repertoire = new File(chemin);
-         
-         // Vérifier si le répertoire existe et s'il est vide
-         if (repertoire.exists() && repertoire.isDirectory() && repertoire.list().length == 0) {
-             // Supprimer le répertoire vide
-             if (repertoire.delete()) {
-                 System.out.println("0 rmdir : The folder '" + chemin.substring(chemin.lastIndexOf(File.separator)+1) + "' is deleted");
-             } else {
-            	 System.out.println("2 rmdir :  '" + chemin+"'");
-             }
-         } else if (!repertoire.exists()){
-        	 System.out.println("2 rmdir : The folder '" + chemin + "' doesn't exist");
-         } else if (!repertoire.isDirectory()) {
-        	 System.out.println("2 rmdir : '" + chemin.substring(chemin.lastIndexOf(File.separator)+1) + "' is not a folder");
-         } else if (repertoire.list().length != 0) {
-        	 System.out.println("2 rmdir : The folder '" + chemin.substring(chemin.lastIndexOf(File.separator)+1) + "' is not empty");
-         }  else {
-        	 System.out.println("2 rmdir : Unkown Error");
-         }
+	        } else {
+
+	            // Utiliser le répertoire spécifié dans les arguments
+	            nomRepertoire = arg;
+	        }
+
+	        // Créer un objet File pour le répertoire
+	        repertoire = new File(nomRepertoire);
+
+	        // Vérifier si le répertoire existe et s'il s'agit d'un répertoire
+	        if (repertoire.exists() && repertoire.isDirectory()) {
+	            // Si le répertoire existe, changer le répertoire courant du processus
+	            System.out.print("1 commande en cours: le repertoire existe");
+	            System.setProperty("user.dir", repertoire.getAbsolutePath());
+	            System.out.print("0 Le répertoire courant est maintenant : " + System.getProperty("user.dir"));
+	        } else {
+	            // Si le répertoire n'existe pas, afficher un message d'erreur
+	        	System.out.print("2 le repertoire n'existe pas ");
+	        }
          
 	}
 

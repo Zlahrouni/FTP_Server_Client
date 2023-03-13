@@ -32,14 +32,15 @@ public class CommandeLS extends Commande {
 	public void execute() {
 		// Obtenir le répertoire courant
 		String currentDirectory = System.getProperty("user.dir");
-		File directory;
+		File directory = null;
 		
 		// Vérifier si un argument a été spécifié pour la commande
-		if (this.commandeArgs[0].isEmpty()) {
-			directory = new File(this.commandeArgs[0]);
+		if (this.commandeArgs.length!= 0) {
+				directory = new File(System.getProperty("user.dir")+File.pathSeparator+this.commandeArgs[0]);
 		} else {
 			directory = new File(currentDirectory);
 		}
+		//wSystem.out.println(directory.getAbsolutePath());
 		
 		// Obtenir la liste des fichiers et répertoires dans le répertoire spécifié
 		String[] fileList = directory.list();
@@ -48,18 +49,18 @@ public class CommandeLS extends Commande {
 		int idx = 0;
 		
 		// Vérifier si la liste n'est pas nulle
-		if (!fileList.equals(null)) {
+		if (fileList != null) {
 			for (String f : fileList) {
 				ps.println("1 " + f);
 				idx++;
 			}
 			if (idx == 0) {
-				ps.println("0 no file found");
+				ps.println("0 No files or directories were found.");
 			} else {
-				ps.println("0 there is " + idx + " file/directory found");
+				ps.println("0 Found " + idx + " file(s)/directory(s)");
 			}
 		} else {
-			ps.println("The path in the arguments does not exist");
+			ps.println("The path specified in the arguments does not exist.");
 		}
 	}
 
