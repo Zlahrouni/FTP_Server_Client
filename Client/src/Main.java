@@ -54,25 +54,84 @@ public class Main {
 	 */
 	public static void handleGet(BufferedReader br, PrintStream ps , String commande) {
 		    String filename = commande.split(" ")[1];
+		    boolean first =false;
+		    
 		    try {
-		        FileOutputStream fos = new FileOutputStream(filename);
+		    	FileOutputStream fos = null;
 		        String line;
-		        while ((line = br.readLine()) != null) {
-		        	if (line.startsWith("1") || line.startsWith("0") || line.startsWith("2")) {
-				    	 System.out.println(">> " + line);
+		        while ((line = br.readLine() )!= null) {
+		        	
+		        	if (line.startsWith("1 Reading in")) {
+		        	    int startIndex = line.indexOf("[") + 1;
+		        	    int endIndex = line.indexOf("]");
+		        	    int GETPORT = Integer.parseInt(line.substring(startIndex, endIndex));
+		        	    
+		        	    //recuperation du fichier :
+		        	    // Création d'une nouvelle connexion sur le port récupéré
+		        	    @SuppressWarnings("resource")
+						Socket dataSocket = new Socket("localhost", GETPORT);
+		        	    BufferedReader dataReader = new BufferedReader(new InputStreamReader(dataSocket.getInputStream()));
+
+
+		        	    // Récupération du contenu du fichier
+		        	    String fileContent = "";
+		        	    String dataLine;
+		        	    while ((dataLine = dataReader.readLine()) != null) {
+		        	    	//System.out.println(dataLine);
+		        	        //fileContent += dataLine + "\n";
+		        	    	if(!first) {
+			            		fos = new FileOutputStream(filename);
+			            		first = true;
+			            	}
+			            	if(first) {
+			            		fos.write(dataLine.getBytes());
+					            fos.write(System.lineSeparator().getBytes()); // add line separator
+			            	}
+		        	    }
+		        	    System.out.println(fileContent);
+		        	    
+		        	    System.out.println("PORT: " + GETPORT);
+		        	    dataSocket.close();
+		        	} else {
+		        		System.out.println(">> " + line);
 				    	 if (line.startsWith("0") || line.startsWith("2")) {
-				    		 
+				    		 System.out.println("End");
+					    	 break;
+					     }
+		        	}
+		        }
+		        /*
+		        while ((line = br.readLine()) != null) {
+		        	
+		        	if (line.startsWith("1") || line.startsWith("0") || line.startsWith("2")) {
+		        		System.out.println(">> " + line);
+				    	 if (line.startsWith("0") || line.startsWith("2")) {
+				    		 System.out.println("End");
 					    	 break;
 					     }
 				     }
-		            fos.write(line.getBytes());
-		            fos.write(System.lineSeparator().getBytes()); // add line separator
-		        }
-		        fos.close();
-		        System.out.println("File saved as " + filename);
+		            if(!line.startsWith("2")) {
+		            	if(!first) {
+		            		fos = new FileOutputStream(filename);
+		            		first = true;
+		            	}
+		            	if(first) {
+		            		fos.write(line.getBytes());
+				            fos.write(System.lineSeparator().getBytes()); // add line separator
+		            	}
+		            	
+		            }
+		            
+		        } // while
+		        if(fos != null) {
+		        	fos.close();
+		        }*/
+		        
+		        //System.out.println("File saved as " + filename);
 		    } catch (IOException e) {
 		        e.printStackTrace();
 		    }
+		    
 		
 	}
 	
@@ -118,10 +177,12 @@ public class Main {
            commande(br,ps,"ls");
 
            commande(br,ps,"pwd");
-           
+           //commande(br,ps,"get CommandeGET.java");
            commande(br,ps,"cd src");
            
-           commande(br,ps,"get CommandeGET.java");
+           
+           commande(br,ps,"get CommandeSTOR.java");
+
            //commande(br,ps,"cd src");
 
            commande(br,ps,"bye");
