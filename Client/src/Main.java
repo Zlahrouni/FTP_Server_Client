@@ -100,32 +100,6 @@ public class Main {
 					     }
 		        	}
 		        }
-		        /*
-		        while ((line = br.readLine()) != null) {
-		        	
-		        	if (line.startsWith("1") || line.startsWith("0") || line.startsWith("2")) {
-		        		System.out.println(">> " + line);
-				    	 if (line.startsWith("0") || line.startsWith("2")) {
-				    		 System.out.println("End");
-					    	 break;
-					     }
-				     }
-		            if(!line.startsWith("2")) {
-		            	if(!first) {
-		            		fos = new FileOutputStream(filename);
-		            		first = true;
-		            	}
-		            	if(first) {
-		            		fos.write(line.getBytes());
-				            fos.write(System.lineSeparator().getBytes()); // add line separator
-		            	}
-		            	
-		            }
-		            
-		        } // while
-		        if(fos != null) {
-		        	fos.close();
-		        }*/
 		        
 		        //System.out.println("File saved as " + filename);
 		    } catch (IOException e) {
@@ -174,14 +148,14 @@ public class Main {
            commande(br,ps,"user personne");
            
            commande(br,ps,"pass abcd");
-           commande(br,ps,"ls");
+           
 
-           commande(br,ps,"pwd");
+           //commande(br,ps,"pwd");
            //commande(br,ps,"get CommandeGET.java");
-           commande(br,ps,"cd src");
+           //commande(br,ps,"cd src");
            
-           
-           commande(br,ps,"get CommandeSTOR.java");
+           commande(br,ps,"ls");
+           //commande(br,ps,"get CommandeSTOR.java");
 
            //commande(br,ps,"cd src");
 

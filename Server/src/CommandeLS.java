@@ -31,12 +31,12 @@ public class CommandeLS extends Commande {
 	 */
 	public void execute() {
 		// Obtenir le répertoire courant
-		String currentDirectory = System.getProperty("user.dir");
+		String currentDirectory =this.WorkingDir;
 		File directory = null;
 		
 		// Vérifier si un argument a été spécifié pour la commande
 		if (this.commandeArgs.length!= 0) {
-				directory = new File(System.getProperty("user.dir")+File.pathSeparator+this.commandeArgs[0]);
+				directory = new File(this.WorkingDir+"\\"+this.commandeArgs[0]);
 		} else {
 			directory = new File(currentDirectory);
 		}
