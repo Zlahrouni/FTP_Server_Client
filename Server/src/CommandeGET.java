@@ -23,8 +23,8 @@ public class CommandeGET extends Commande {
 	 *                    être imprimés.
 	 * @param commandeStr La chaîne de caractères qui représente la commande "get".
 	 */
-	public CommandeGET(PrintStream ps, String commandeStr) {
-		super(ps, commandeStr);
+	public CommandeGET(PrintStream ps, String commandeStr, InformationClient cl) {
+		super(ps, commandeStr, cl);
 	}
 
 	/**
@@ -36,7 +36,7 @@ public class CommandeGET extends Commande {
 			File fichier = new File(this.commandeArgs[0]);
 
 				try {
-					FileInputStream in = new FileInputStream(System.getProperty("user.dir") +"\\"+fichier);
+					FileInputStream in = new FileInputStream(this.cl.workingdir +File.separator+fichier);
 					BufferedInputStream bis = new BufferedInputStream(in);
 					
 					// Créer une nouvelle socket pour envoyer le contenu du fichier

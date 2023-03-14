@@ -148,12 +148,12 @@ public class Main {
            commande(br,ps,"user personne");
            
            commande(br,ps,"pass abcd");
-           
 
-           //commande(br,ps,"pwd");
-           //commande(br,ps,"get CommandeGET.java");
-           //commande(br,ps,"cd src");
-           
+           commande(br,ps,"pwd");
+           commande(br,ps,"get CommandeGET.java");
+           commande(br,ps,"cd src");
+           commande(br,ps,"get InformationClient.java");
+
            commande(br,ps,"ls");
            //commande(br,ps,"get CommandeSTOR.java");
 

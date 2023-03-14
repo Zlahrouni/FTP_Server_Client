@@ -19,8 +19,8 @@ public class CommandeLS extends Commande {
 	 *                    être imprimés.
 	 * @param commandeStr La chaîne de caractères qui représente la commande "ls".
 	 */
-	public CommandeLS(PrintStream ps, String commandeStr) {
-		super(ps, commandeStr);
+	public CommandeLS(PrintStream ps, String commandeStr, InformationClient cl) {
+		super(ps, commandeStr, cl);
 	}
 
 	/**
@@ -31,12 +31,12 @@ public class CommandeLS extends Commande {
 	 */
 	public void execute() {
 		// Obtenir le répertoire courant
-		String currentDirectory =this.WorkingDir;
+		String currentDirectory =this.cl.workingdir;
 		File directory = null;
 		
 		// Vérifier si un argument a été spécifié pour la commande
 		if (this.commandeArgs.length!= 0) {
-				directory = new File(this.WorkingDir+"\\"+this.commandeArgs[0]);
+				directory = new File(this.cl.workingdir+"\\"+this.commandeArgs[0]);
 		} else {
 			directory = new File(currentDirectory);
 		}

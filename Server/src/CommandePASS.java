@@ -2,8 +2,8 @@ import java.io.PrintStream;
 
 public class CommandePASS extends Commande {
 	
-	public CommandePASS(PrintStream ps, String commandeStr) {
-		super(ps, commandeStr);
+	public CommandePASS(PrintStream ps, String commandeStr, InformationClient cl) {
+		super(ps, commandeStr, cl);
 	}
 
 	public void execute() {

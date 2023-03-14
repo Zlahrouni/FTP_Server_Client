@@ -17,8 +17,8 @@ public class CommandeRMDIR extends Commande {
 	 *                    être imprimés.
 	 * @param commandeStr La chaîne de caractères qui représente la commande "rmdir".
 	 */
-	public CommandeRMDIR(PrintStream ps, String commandeStr) {
-		super(ps, commandeStr);
+	public CommandeRMDIR(PrintStream ps, String commandeStr, InformationClient cl) {
+		super(ps, commandeStr, cl);
 	}
 
 	/**
@@ -33,7 +33,7 @@ public class CommandeRMDIR extends Commande {
 		if (arg.contains(File.separator))  {
 			chemin = arg;
 		} else {
-			chemin = System.getProperty("user.dir")+File.pathSeparator+arg;
+			chemin = this.cl.workingdir +File.separator+arg;
 		}
 
 		// Créer un objet File pour le répertoire

@@ -18,8 +18,8 @@ public class CommandeCD extends Commande {
 	 *                    être imprimés.
 	 * @param commandeStr La chaîne de caractères qui représente la commande "ls".
 	 */
-	public CommandeCD(PrintStream ps, String commandeStr) {
-		super(ps, commandeStr);
+	public CommandeCD(PrintStream ps, String commandeStr, InformationClient cl) {
+		super(ps, commandeStr, cl);
 	}
 
     /**
@@ -43,7 +43,7 @@ public class CommandeCD extends Commande {
         } else {
         	
             // Utiliser le répertoire spécifié dans les arguments
-            nomRepertoire = System.getProperty("user.dir")+ "\\" + this.commandeArgs[0];
+            nomRepertoire = this.cl.workingdir+ "\\" + this.commandeArgs[0];
             
         }
 
@@ -53,11 +53,11 @@ public class CommandeCD extends Commande {
         // Vérifier si le répertoire existe et s'il s'agit d'un répertoire
         if (repertoire.exists() && repertoire.isDirectory()) {
             // Si le répertoire existe, changer le répertoire courant du processus
-            ps.println("1 commande en cours: le repertoire existe");
-            System.setProperty("user.dir", nomRepertoire);
-            ps.println("0 Le répertoire courant est maintenant : " + System.getProperty("user.dir"));
+            this.cl.workingdir =nomRepertoire;
+            ps.println("0 Le répertoire courant est maintenant : " + this.cl.workingdir);
         } else {
             // Si le répertoire n'existe pas, afficher un message d'erreur
+        	System.out.println("Error " + this.cl.workingdir);
             ps.println("2 le repertoire n'existe pas ");
         }
     }

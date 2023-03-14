@@ -5,9 +5,9 @@ public abstract class Commande {
 	protected PrintStream ps;
 	protected String commandeNom = "";
 	protected String [] commandeArgs ;
-	String WorkingDir=".";
+	InformationClient cl;
 	
-	public Commande(PrintStream ps, String commandeStr) {
+	public Commande(PrintStream ps, String commandeStr,InformationClient cl ) {
 		this.ps = ps ;
 		String [] args = commandeStr.split(" ");
 		commandeNom = args[0];
@@ -16,6 +16,7 @@ public abstract class Commande {
 		for(int i=0; i<commandeArgs.length; i++) {
 			commandeArgs[i] = args[i+1];
 		}
+		this.cl = cl;
 	}
 	
 	public abstract void execute();

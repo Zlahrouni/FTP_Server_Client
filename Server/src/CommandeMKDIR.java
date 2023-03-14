@@ -14,8 +14,8 @@ public class CommandeMKDIR extends Commande {
 	 * @param ps Le flux de sortie où les résultats de la commande doivent être imprimés.
 	 * @param commandeStr La chaîne de caractères qui représente la commande "rmdir".
 	 */
-	public CommandeMKDIR(PrintStream ps, String commandeStr) { 
-		super(ps, commandeStr);
+	public CommandeMKDIR(PrintStream ps, String commandeStr, InformationClient cl) { 
+		super(ps, commandeStr, cl);
 	}
 	
 	/**
@@ -32,7 +32,7 @@ public class CommandeMKDIR extends Commande {
 		
 		if(!this.commandeArgs[0].isEmpty()) {
 			    nomRepertoire =this.commandeArgs[0] ; // Nom du nouveau répertoire à créer
-			    repertoireCourant = new File(System.getProperty("user.dir")); // Obtenir le répertoire courant
+			    repertoireCourant = new File(this.cl.workingdir); // Obtenir le répertoire courant
 		        nouveauRepertoire = new File(repertoireCourant, nomRepertoire);
 		        
 		        
