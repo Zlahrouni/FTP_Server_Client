@@ -1,7 +1,12 @@
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.io.PrintStream;
 import java.net.Socket;
 
@@ -42,6 +47,58 @@ public class Main {
 		}
        
 	}
+	
+	private static void handleStor(BufferedReader br, PrintStream ps, String commande) {
+		String filename = commande.split(" ")[1];
+	    boolean first =false;
+	    
+	    try {
+	    	FileInputStream fis = null;
+	        String line;
+	        while ((line = br.readLine() )!= null) {
+	        	
+	        	if (line.startsWith("1 Reading in")) {
+	        	    int startIndex = line.indexOf("[") + 1;
+	        	    int endIndex = line.indexOf("]");
+	        	    int GETPORT = Integer.parseInt(line.substring(startIndex, endIndex));
+	        	    
+	        	    //recuperation du fichier :
+	        	    // Création d'une nouvelle connexion sur le port récupéré
+	        	    @SuppressWarnings("resource")
+					Socket dataSocket = new Socket("localhost", GETPORT);
+	        	    OutputStream out = dataSocket.getOutputStream();
+	        	    //BufferedWriter dataWriter = new BufferedWriter(new OutputStreamWriter(dataSocket.getOutputStream()));
+	        	    fis = new FileInputStream(filename);
+	        	    
+	        	    byte[] buffer = new byte[1024];
+	        	    int count ;
+	        	    while((count = fis.read(buffer)) != -1) {
+	        	    	out.write(buffer, 0, count);
+	        	    }
+	        	    // Récupération du contenu du fichier
+	        	    String fileContent = "";
+	        	    String dataLine;
+
+	        	    System.out.println(fileContent);
+	        	    
+	        	    System.out.println("PORT: " + GETPORT);
+	        	    dataSocket.close();
+	        	} else {
+	        		System.out.println(">> " + line);
+			    	 if (line.startsWith("0") || line.startsWith("2")) {
+			    		 System.out.println("End");
+				    	 break;
+				     }
+	        	}
+	        }
+	        
+	        //System.out.println("File saved as " + filename);
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
+		
+	}
+
 	
 	/**
 	 * Cette fonction permet de gérer la commande "get" en enregistrant le contenu du fichier
@@ -105,8 +162,7 @@ public class Main {
 		    } catch (IOException e) {
 		        e.printStackTrace();
 		    }
-		    
-		
+
 	}
 	
 	/**
@@ -123,6 +179,8 @@ public class Main {
 		ps.println(commande);
 		if (commande.startsWith("get")) {
 			handleGet(br,  ps , commande);
+		} else if (commande.startsWith("stor"))  {
+			handleStor(br,  ps , commande);
 		} else {
 			affichage(br);
 		}
@@ -150,9 +208,11 @@ public class Main {
            commande(br,ps,"pass abcd");
 
            commande(br,ps,"pwd");
-           commande(br,ps,"get CommandeGET.java");
+           //commande(br,ps,"get CommandeGET.java");
            commande(br,ps,"cd src");
-           commande(br,ps,"get InformationClient.java");
+           commande(br,ps,"mkdir ziadbg");
+           commande(br,ps,"cd ziadbg");
+           commande(br,ps,"stor ziadLebg.txt");
 
            commande(br,ps,"ls");
            //commande(br,ps,"get CommandeSTOR.java");
