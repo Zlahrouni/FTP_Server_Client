@@ -1,3 +1,4 @@
+
 import java.io.File;
 import java.io.PrintStream;
 
@@ -57,7 +58,6 @@ public class CommandeCD extends Commande {
             ps.println("0 Le répertoire courant est maintenant : " + this.cl.workingdir);
         } else {
             // Si le répertoire n'existe pas, afficher un message d'erreur
-        	System.out.println("Error " + this.cl.workingdir);
             ps.println("2 le repertoire n'existe pas ");
         }
     }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="root" alignment="CENTER" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ServerController">
+    <TextArea fx:id="log" editable="false" prefHeight="300.0" prefWidth="600.0" text="&#10;" />
+    <Button fx:id="startBtn" onAction="#onStart" text="Start the server" />
+    <Button fx:id="stopBtn" disable="true" onAction="#onStop" text="Stop the server" />
+</VBox>
