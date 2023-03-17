@@ -1,8 +1,8 @@
 /.metadata/
-Client/.settings
-Client/bin
-Client/.classpath
-Server/.settings
-Server/bin
-Server/.classpath
+ClientGui/.settings
+ClientGui/bin
+ClientGui/.classpath
+ServerGui/.settings
+ClientGui/bin
+ClientGui/.classpath
 

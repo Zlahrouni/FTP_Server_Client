@@ -13,7 +13,7 @@ import server.Server;
 
 
 /**
- * Controller class for the FTP server GUI.
+ * Controller class for the FTP server GUI. 
  */
 public class ServerController implements Initializable {
 		

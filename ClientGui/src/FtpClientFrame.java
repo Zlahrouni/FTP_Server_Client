@@ -19,7 +19,7 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
+import javax.swing.JOptionPane; 
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JScrollBar;
@@ -41,7 +41,7 @@ public class FtpClientFrame extends JFrame {
 
 	public FtpClientFrame() {
 		
-		super("TransferEaser Client");
+		super("TransferEase Client");
 		setSize(600, 400);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 

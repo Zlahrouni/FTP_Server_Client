@@ -11,7 +11,7 @@ import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
-
+ 
 public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
@@ -19,7 +19,7 @@ public class Main extends Application {
 			Parent root = FXMLLoader.load(getClass().getResource("MainScene.fxml"));
 			Scene scene = new Scene(root);
 			
-			primaryStage.setTitle("TransferEase");
+			primaryStage.setTitle("TransferEase Server");
 			primaryStage.setScene(scene);
 			// Ajouter une action personnalisée lors de la fermeture de la fenêtre
 			primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
