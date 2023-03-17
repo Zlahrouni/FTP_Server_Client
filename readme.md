@@ -58,7 +58,7 @@ The client is a Java Swing application that allows you to send and receive files
 
 ## Important 
 
-When creating a file or a folder, please avoid using spaces and use underscores instead. For example, use mkdir this_is_a_folder instead of mkdir this is a folder.
+When creating a file or a folder, please avoid using spaces and use underscores instead. For example, use `mkdir this_is_a_folder` instead of `mkdir this is a folder`.
 
 ### Authors
 <ul>
