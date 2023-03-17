@@ -24,7 +24,7 @@ The server is a Java application that uses JavaFX for the graphical user interfa
 1. Click the `Start` button to start the server.
 2. The server will start listening for connections on port 2121.
 3. Once a client connects to the server, the server will display a log of all activity in the GUI.
-4. The server close automatically when you close the app
+4. The server close automatically when you close the app.
 
 ## Client
 
@@ -42,8 +42,16 @@ The client is a Java Swing application that allows you to send and receive files
 
 ### Usage
 
-1. Enter a command in the text field and press `Enter` to send it to the server.
-2. The server will send a response to the client, which will be displayed in the GUI.
+1. Run the client
+2. Connection to the server : Put the the host adresse (`localhost` in case you are runing both of the apps in the same laptop).
+3. Authentification : You can authentify by going to the item menu authentification or us the command `user theUsername'` and `pass password`.
+   1. There is on user 'jhonedoe' to create another user you can create a folder in `ServerGui` the name of the folder will be the username and the password will be the first line of the file pw.txt (without space)
+4. Enter a command in the text field and press `Enter` to send it to the server.
+5. The server will send a response to the client, which will be displayed in the GUI.
+
+## Important 
+
+When creating a file or a folder, please avoid using spaces and use underscores instead. For example, use mkdir this_is_a_folder instead of mkdir this is a folder.
 
 ### Authors
 - Ziad Lahrouni : [Website](www.ziadlahrouni.com) - [Github](www.github.com/Zlahrouni)
