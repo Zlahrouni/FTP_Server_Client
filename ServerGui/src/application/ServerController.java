@@ -29,10 +29,10 @@ public class ServerController implements Initializable {
 
     @FXML
     private Button startBtn;
-
+    /*
     @FXML
     private Button stopBtn;
-    
+    */
     @Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		log("Welcome to TransferEase, to start the server click on start button");
@@ -46,21 +46,18 @@ public class ServerController implements Initializable {
     void onStart(ActionEvent event) throws IOException  {
     	
     	disableStartBtn();
-    	enableStopBtn();
+    	//enableStopBtn();
     	server = new Server(port, log);
     	server.start(); 
  
     	
     }
+    /*
 
-    /**
-     * Stops the FTP server.
-     * @param event the action event.
-     */
     @FXML
     void onStop(ActionEvent event) {
         try {
-        	//log("INFO : Try to stop the server");
+        	log("INFO : Try to stop the server");
         	server.stopThread(); // stop the server
 
             disableStopBtn();
@@ -75,6 +72,7 @@ public class ServerController implements Initializable {
         	enableStopBtn();
         }
     }
+    */
 
     /**
      * Logs a message to the text area.
@@ -97,20 +95,21 @@ public class ServerController implements Initializable {
     private void disableStartBtn() {
         Platform.runLater(() -> startBtn.setDisable(true));
     }
-
+    
     /**
      * Enables the Stop button.
      */
+    /*
     private void enableStopBtn() {
         Platform.runLater(() -> stopBtn.setDisable(false));
-    }
+    }*/
 
     /**
      * Disables the Stop button.
-     */
+     *//*
     private void disableStopBtn() {
         Platform.runLater(() -> stopBtn.setDisable(true));
-    }
+    }*/
     
     protected void close() {
     	server.stopThread();

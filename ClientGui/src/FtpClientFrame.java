@@ -184,7 +184,7 @@ public class FtpClientFrame extends JFrame {
 				return;
 			} finally {
 
-				if (socket != null || !socket.isClosed()) {
+				if (socket != null && !socket.isClosed()) {
 					client.affichage(br);
 					resultArea.append("To set the password go to User > Authentication\n");
 				}

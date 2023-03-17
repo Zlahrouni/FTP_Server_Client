@@ -44,7 +44,7 @@ public class CommandExecutor {
 			}
 			// Commande inkonnu
 			else {
-				ps.println("2 I don't understand :(");
+				ps.println("2 This command doesn't exist");
 			}
 		}
 		else {
