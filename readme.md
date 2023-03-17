@@ -6,6 +6,9 @@ This project is currently in **beta** mode, which means that it may contain bugs
 
 ## Server
 
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/75903708/225970323-80622a49-be87-4817-a03e-16732cc99637.png" width="500">
+</div>
 The server is a Java application that uses JavaFX for the graphical user interface. To start the server, simply run the `Server` class. The server listens on port 2121 by default.
 
 ### Prerequisites
@@ -27,6 +30,10 @@ The server is a Java application that uses JavaFX for the graphical user interfa
 4. The server close automatically when you close the app.
 
 ## Client
+
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/75903708/225971372-e94d851f-7df6-4f42-92de-14294fc8b10b.png" width="500">
+</div>
 
 The client is a Java Swing application that allows you to send and receive files from the server. To start the client, simply run the `FtpClientFrame` class.
 
@@ -54,8 +61,10 @@ The client is a Java Swing application that allows you to send and receive files
 When creating a file or a folder, please avoid using spaces and use underscores instead. For example, use mkdir this_is_a_folder instead of mkdir this is a folder.
 
 ### Authors
-- Ziad Lahrouni : [Website](www.ziadlahrouni.com) - [Github](www.github.com/Zlahrouni)
-- Hanane Erraji : [Website](www.hananeerraji.info) - [Gitub](www.github.com/HananeErra)
+<ul>
+<li>Ziad Lahrouni : <a href="https://www.ziadlahrouni.com" target="_blank">Website</a> - <a href="https://github.com/Zlahrouni" target="_blank">Github</a></li>
+<li>Hanane Erraji : <a href="https://www.hananeerraji.info" target="_blank">Website</a> - <a href="https://www.github.com/HananeErra" target="_blank">Github</a></li>
+</ul>
 
 ## License
 
